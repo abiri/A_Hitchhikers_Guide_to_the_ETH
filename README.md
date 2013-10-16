@@ -21,7 +21,7 @@ That is where we see the importance of a model which would focus mainly on the d
 The model will be situated in Zurich, Switzerland, and will concentrate on the trail formation of students of the Swiss Federal Institute of Technology (ETHZ).
 As most of the students (PERCENTAGE?!) are not situated around the university in lack of a campus, the majority uses public transport and arrives at Zurich Main Station and seek their way up the hill to the main halls.
 
-Students are no homogonous matter: they are lasy, sleepy, stressed or in groups. Some are sportive and consider a ten-minutes-walk a good way of clearing the mind,whereas others prefer the comfort of trams.
+Students are no homogonous matter: they are lasy, sleepy, stressed or in groups. Some are sportive and consider a ten-minutes-walk a good way of clearing the mind,whereas others prefer the comfort of trams and the Polybahn.
 Therefore, individual characteristics such as energy, sleep, sociality or stress influence each single student's trail formation differently.
 
 (Define dependent and independent variables you want to study. Say how you want to measure them.) (Why is your model a good abtraction of the problem you want to study?) (Are you capturing all the relevant aspects of the problem?)
