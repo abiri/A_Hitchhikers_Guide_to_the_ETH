@@ -24,9 +24,11 @@ bond_high = 40;
 habit_low = 0;
 habit_high = 1;
 
-% Attribute 6 : tbd
-attr_low = 0;
-attr_high = 0;
+% Attribute 6 : Choosen way / path
+
+% Attribute 7 : x - coordinate
+
+% Attribute 8 : y - coordinate
   
 % Set attributes
 
@@ -39,7 +41,5 @@ M(:,3) = tired_low + round((tired_high - tired_low)*rand(agents));
 M(:,4) = bond_low + round((bond_high - bond_low)*rand(agents));
 
 M(:,5) = habit_low + round((habit_high - habit_low)*rand(agents));
-
-M(:,6) = attr_low + round((attr_high - attr_low)*rand(agents));
 
  
