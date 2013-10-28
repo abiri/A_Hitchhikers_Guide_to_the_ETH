@@ -1,6 +1,6 @@
 % Initializing agents list; rows are agents, colum are attributes
 agents = 100;
-attibutes = 6;
+attibutes = 8;
 
 M = zeros(agents,attributes);
 
