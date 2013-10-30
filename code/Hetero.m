@@ -1,6 +1,11 @@
+
+function M = Hetero()
 % Initializing agents list; rows are agents, colum are attributes
-agents = 100;
-attibutes = 8;
+
+load data;
+
+agents = dt*apti*time_span;
+attributes = 8;
 
 M = zeros(agents,attributes);
 
