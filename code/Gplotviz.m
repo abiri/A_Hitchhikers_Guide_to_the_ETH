@@ -4,17 +4,11 @@
 
 [A,map] = imread('https://github.com/abiri/A_Hitchhikers_Guide_to_the_ETH/blob/master/presentation/Maps_GeoAdmin.png?raw=true','png');
 % Image resolution: 787 * 494
-x = 787;
-y = 494;
 
 imshow(A);
 showaxes
 
 hold on;
-axis ij;
-
-% rectangle('Position',[10 10 700 400])
-% line([100,100],[200,200], 'LineWidth',3,'Color','r');
 
 x1 = 418 ; y1 = 308; x2 = 597; y2 = 297; % stupid Matlab syntax
 % Polybahn
