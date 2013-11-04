@@ -3,6 +3,7 @@
 % same node legend as in biographviz
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 %Links = [0 1 1 1 0; 0 0 0 0 1; 0 0 0 0 1; 0 0 0 0 1; 0 0 0 0 0];
 %Coord = [1 0; 4 -3; 4 0; 8 -2.5; 15 -3 ];
 %gplot(Links,Coord,'-o')
@@ -47,6 +48,8 @@ hold off
 close(writerObj); % Saves the movie.
  
 =======
+=======
+>>>>>>> ccdfd50a73b468157cb93918b6161c42a58c12db
 [A,map] = imread('https://github.com/abiri/A_Hitchhikers_Guide_to_the_ETH/blob/master/presentation/Maps_GeoAdmin.png?raw=true','png');
 % Image resolution: 787 * 494
 
@@ -72,5 +75,9 @@ hold off;
 % Links = [0 1 1 1 0; 0 0 0 0 1; 0 0 0 0 1; 0 0 0 0 1; 0 0 0 0 0];
 % Coord = [1 0; 4 -3; 4 0; 8 -2.5; 15 -3 ];
 % gplot(Links,Coord,'-o')
+<<<<<<< HEAD
+% axis ( [-2 16 -5 2 ] )
+>>>>>>> ccdfd50a73b468157cb93918b6161c42a58c12db
+=======
 % axis ( [-2 16 -5 2 ] )
 >>>>>>> ccdfd50a73b468157cb93918b6161c42a58c12db
