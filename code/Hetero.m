@@ -4,7 +4,7 @@ function M = Hetero()
 
 load data;
 
-agents = dt*apti*time_span;
+agents = apti * time_span / dt;
 attributes = 8;
 
 M = zeros(agents,attributes);

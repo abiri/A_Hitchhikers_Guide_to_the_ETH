@@ -3,7 +3,7 @@ function M = Homo()
 
 load data;
 
-agents = dt * apti * time_span;
+agents = apti * time_span / dt;
 attributes = 2;
 
 M = zeros(agents,attributes);
