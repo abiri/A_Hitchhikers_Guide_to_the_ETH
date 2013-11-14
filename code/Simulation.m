@@ -83,6 +83,8 @@ for i = 1:(time_span/dt); % loops through all time intervals
     
     total_temp(i) = i*apti - sum( M(:,1) == (-1)*ones(agents,1));
     
+    vuz
+    
 end
 
 subplot(4,1,1), plot(total_temp);
