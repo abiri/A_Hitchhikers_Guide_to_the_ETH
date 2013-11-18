@@ -23,6 +23,12 @@ poly_capacity = 40;
 tram_capacity = 50;
 walk_capacity = 10000; % atm infinite
 
+calc = 0; % for preventing multiple calculations
+
+hold on;
+
+fid = figure;
+
 for i = 1:(time_span/dt); % loops through all time intervals
     
     while ( M(previous,1) < 0)  % skips agents that already progressed through the entire system,  Path "-1" == done
@@ -75,17 +81,19 @@ for i = 1:(time_span/dt); % loops through all time intervals
     end
     
 
-    % statistic data
-    
-    %poly_temp(i)  = sum( M(:,1) == ones(agents)); 
-    %tram_temp(i)  = sum( M(:,1) == 2*ones(agents)); 
-    %walk_temp(i)  = sum( M(:,1) == 3*ones(agents)); 
+    % statistic data and visualisation
     
     total_temp(i) = i*apti - sum( M(:,1) == (-1)*ones(agents,1));
     
-    vuz
+    Visualisation
     
 end
+
+hold off;
+pause(2);
+
+fid2 = figure;
+figure (fid2);
 
 subplot(4,1,1), plot(total_temp);
 subplot(4,1,2), plot(poly_temp);
