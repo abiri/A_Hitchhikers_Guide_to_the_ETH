@@ -101,10 +101,6 @@ agent_pos = zeros(previous - (apti*(i-1)),1);
                 agent_y(i) =  y_t(agent_pos(i));    % Tram
             case 3
                 agent_y(i) =  y_w(agent_pos(i));    % Walking
-            case 4
-                agent_y(i) = 5 +  3*poly_tempw(current);  % Waiting for Polybahn
-            case 5
-                agent_y(i) = 10 + 3*tram_tempw(current);  % Waiting for tram
             case -1
                 agent_y(i) = 0; % finished
             otherwise
@@ -121,6 +117,6 @@ agent_pos = zeros(previous - (apti*(i-1)),1);
  ylim([0 60]);
 
  scatter(agent_pos,agent_y);
- pause(0.1);
+ pause(0.3);
  
  
