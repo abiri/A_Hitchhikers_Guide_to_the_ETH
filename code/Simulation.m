@@ -31,10 +31,9 @@ walk_capacity = 10000; % atm infinite
 poly_wait = 80;
 tram_wait = 50;
 
+% Preparing Visualisation
 calc = 0; % for preventing multiple calculations
-
-hold on;
-
+[A,map] = imread('https://github.com/abiri/A_Hitchhikers_Guide_to_the_ETH/blob/master/presentation/Maps_GeoAdmin.png?raw=true','png');
 fid = figure;
 
 for i = 1:(time_span/dt); % loops through all time intervals
@@ -51,6 +50,8 @@ for i = 1:(time_span/dt); % loops through all time intervals
 
         switch M(k,1)
             case 0
+                % nothing happens, just to short-circuit evaluation
+            case -1
                 % nothing happens, just to short-circuit evaluation
             case 1
                 if ( M(k,2) > time_poly )
@@ -73,19 +74,21 @@ for i = 1:(time_span/dt); % loops through all time intervals
             case 4
                 if ( ( mod(i*dt,time_poly) == 0) && (poly_temp(i) < poly_capacity) )
                     poly_temp(i) = poly_temp(i) + 1;
-                    M(k,2) = 1;
+                    M(k,1) = 1;
+                    M(k,2) = 0; % reset timer
                 else
                     poly_tempw(i) = poly_tempw(i) + 1;
                 end
             case 5
                 if ( ( mod(i*dt,time_tram) == 0) && (tram_temp(i) < tram_capacity) )
                     tram_temp(i) = tram_temp(i) + 1;
-                    M(k,2) = 2;
+                    M(k,1) = 2;
+                    M(k,2) = 0; % reset timer
                 else
                     tram_tempw(i) = tram_tempw(i) + 1;
                 end
             otherwise
-                disp('Something went wrong with the path ' , M(i,1) , ' at timestep ' , k);                  % FIX k printing entirely
+                X = fprintf('Something went wrong with the path %d at timestep %d !' , M(k,1) , k);
         end
     end
 
@@ -94,12 +97,18 @@ for i = 1:(time_span/dt); % loops through all time intervals
 
         % evaluate situation and position new agents
         
-        if ( poly_temp(i) < poly_capacity)
+        if (( poly_temp(i) < poly_capacity) && ( mod(i*dt,time_poly) == 0))     % Polybahn is just departing
            M(j,1) = 1;
            poly_temp(i) = poly_temp(i) + 1;
-        elseif ( tram_temp(i) < tram_capacity)
+        elseif (( tram_temp(i) < tram_capacity) && ( mod(i*dt,time_tram) == 0)) % Tram is just departing
            M(j,1) = 2;
            tram_temp(i) = tram_temp(i) + 1;
+        elseif ( poly_tempw(i) < poly_wait)
+            M(j,1) = 4;
+            poly_tempw(i) = poly_tempw(i) + 1;
+        elseif ( tram_tempw(i) < tram_wait)
+            M(j,1) = 5;
+            tram_tempw(i) = tram_tempw(i) + 1;
         else
            M(j,1) = 3;
            walk_temp(i) = walk_temp(i) + 1;
@@ -111,13 +120,12 @@ for i = 1:(time_span/dt); % loops through all time intervals
     
     total_temp(i) = i*apti - sum( M(:,1) == (-1)*ones(agents,1));
     
-    current = i; % for stacked display of waiting agents
-   % Visualisation
+    current = i; % for stacked display of waiting agents in Visualisation
+    Visualisation
     
 end
 
-hold off;
-pause(0.5);
+pause(2);
 
 fid2 = figure;
 figure (fid2);
