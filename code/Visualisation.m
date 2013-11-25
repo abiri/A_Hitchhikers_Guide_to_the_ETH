@@ -86,41 +86,56 @@ calc = 1; % prevents multiple plottings
 
 
 % Plots the agents at their corresponding position
-agent_y = zeros(previous - (apti*(current-1)),1);
-agent_x = zeros(previous - (apti*(current-1)),1);
- 
+agent_y = zeros(apti*(current-1) - previous,1);
+agent_x = zeros(apti*(current-1) - previous,1);
+plot_size = ones(apti*(current-1) - previous,1);
+
+plot_poly = 300;
+plot_tram = 400;
+plot_walk = 80;
+plot_wait = 200;
      
- for i = previous:(apti*(current-1))
+until = apti*(current-1) - previous;
+
+ for i = 1:(until+1)
      
-    time = M(i,2);
+    time = M(i+(previous-1),2);
     agent_x(i) = round(time/dt);
     
     if (time > 0)
-        switch M(i,1)
+        switch M(i+(previous-1),1)
             case 1
                 agent_y(i) = y_p(agent_x(i));    % Polybahn
                 agent_x(i) = 18*agent_x(i) + 390;
+                plot_size(i) = plot_poly;
             case 2
                 agent_y(i) = y_t(agent_x(i));    % Tram
                 agent_x(i) = 7*agent_x(i) + 390;
+                plot_size(i) = plot_tram;
             case 3
                 agent_y(i) =  y_w(agent_x(i));    % Walking
                 agent_x(i) = 5*agent_x(i) + 390;
+                plot_size(i) = plot_walk;
             case 4
                 agent_y(i) = 500;                 % Waiting for Polybahn
                 agent_x(i) = 5 * poly_tempw(current);
+                plot_size(i) = plot_wait;
             case 5
                 agent_y(i) = 510;                 % Waiting for tram
                 agent_x(i) = 5 * tram_tempw(current);
+                plot_size(i) = plot_wait;
             case -1
                 agent_y(i) = 347;                   % finished
                 agent_x(i) = 625;
+                plot_size(i) = plot_wait;
             otherwise
                 agent_y(i) = 200;
                 agent_x(i) = 200;
+                plot_size(i) = plot_wait;
         end
     else
         agent_y(i) = 0;
+        plot_size(i) = 1;
     end
     
  end
@@ -131,13 +146,10 @@ agent_x = zeros(previous - (apti*(current-1)),1);
  hold on;
 
  ylim([0 510]); % so that waiting lines are printed correctly
-
- scatter(agent_x,agent_y, 200, 'fill', 'MarkerEdgeColor','r', 'MarkerFaceColor','g');
  
- % Further option: individual size and color of the different paths, see doc
- % of scatter at http://www.mathworks.ch/ch/help/matlab/ref/scatter.html
+ scatter(agent_x,agent_y, plot_size, 'fill', 'MarkerEdgeColor','r', 'MarkerFaceColor','g');
  
  hold off;
- pause(0.3);
+ %pause(0.3);
  
  
