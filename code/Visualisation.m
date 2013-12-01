@@ -1,4 +1,3 @@
-
 % Draws the agents on the map 
 
 load data;
@@ -18,8 +17,6 @@ if (calc == 0)
              y_p(i)= 290;
 
          elseif ( i <= time2 ) 
-
-             % additional terms clear irregularities induced by changing conditions
 
              y_p(i) = 13*( x_p(i) - time1 ) + y_p(time1);
 
@@ -44,8 +41,6 @@ if (calc == 0)
 
          elseif ( i <= time2) 
 
-             % additional terms clear irregularities induced by changing conditions
-
              y_t(i) = -50*( x_t(i) - time1 ) + y_t(time1);
 
          else
@@ -55,7 +50,7 @@ if (calc == 0)
          end
      end
      
-     % Walking
+    % Walking
     y_w = zeros(time_walk/dt,1);
     x_w = 1:(time_walk/dt);
     time1 = round(time_walk/dt *0.27);
@@ -68,8 +63,6 @@ if (calc == 0)
              y_w(i)= 290;
 
          elseif ( i <= time2) 
-
-             % additional terms clear irregularities induced by changing conditions
 
              y_w(i) = 9*( x_w(i) - time1 ) + y_w(time1) ;
 
@@ -86,16 +79,16 @@ calc = 1; % prevents multiple plottings
 
 
 % Plots the agents at their corresponding position
-agent_y = zeros(apti*(current-1) - previous,1);
-agent_x = zeros(apti*(current-1) - previous,1);
-plot_size = ones(apti*(current-1) - previous,1);
+agent_y = zeros(old_top - previous,1);
+agent_x = zeros( old_top - previous,1);
+plot_size = ones( old_top - previous,1);
 
 plot_poly = 300;
 plot_tram = 400;
 plot_walk = 80;
 plot_wait = 200;
      
-until = apti*(current-1) - previous;
+until = old_top - previous;
 
  for i = 1:(until+1)
      
@@ -105,30 +98,34 @@ until = apti*(current-1) - previous;
     if (time > 0)
         switch M(i+(previous-1),1)
             case 1
-                agent_y(i) = y_p(agent_x(i));    % Polybahn
+                agent_y(i) = y_p(agent_x(i));     % Polybahn
                 agent_x(i) = 18*agent_x(i) + 390;
                 plot_size(i) = plot_poly;
             case 2
-                agent_y(i) = y_t(agent_x(i));    % Tram
+                agent_y(i) = y_t(agent_x(i));     % Tram
                 agent_x(i) = 7*agent_x(i) + 390;
                 plot_size(i) = plot_tram;
             case 3
                 agent_y(i) =  y_w(agent_x(i));    % Walking
                 agent_x(i) = 5*agent_x(i) + 390;
                 plot_size(i) = plot_walk;
+        end
+    elseif ( M(i+(previous-1),1) > 3 )
+        switch M(i+(previous-1),1)
             case 4
-                agent_y(i) = 500;                 % Waiting for Polybahn
+                agent_y(i) = 500;                  % Waiting for Polybahn
                 agent_x(i) = 5 * poly_tempw(current);
                 plot_size(i) = plot_wait;
             case 5
-                agent_y(i) = 510;                 % Waiting for tram
+                agent_y(i) = 510;                  % Waiting for tram
                 agent_x(i) = 5 * tram_tempw(current);
                 plot_size(i) = plot_wait;
             case -1
-                agent_y(i) = 347;                   % finished
+                agent_y(i) = 347;                  % finished
                 agent_x(i) = 625;
                 plot_size(i) = plot_wait;
             otherwise
+                X = fprintf('There was an agent with path %d and waiting time %d\n', M(i+(previous-1),1), M(i+(previous-1),3));
                 agent_y(i) = 200;
                 agent_x(i) = 200;
                 plot_size(i) = plot_wait;
@@ -150,6 +147,6 @@ until = apti*(current-1) - previous;
  scatter(agent_x,agent_y, plot_size, 'fill', 'MarkerEdgeColor','r', 'MarkerFaceColor','g');
  
  hold off;
- %pause(0.3);
+ %pause(0.1);
  
  
