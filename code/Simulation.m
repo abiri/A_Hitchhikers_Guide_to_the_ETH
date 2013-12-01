@@ -46,6 +46,10 @@ calc = 0; % for preventing multiple calculations
 [A,map] = imread('https://github.com/abiri/A_Hitchhikers_Guide_to_the_ETH/blob/master/presentation/Maps_GeoAdmin.png?raw=true','png');
 fid = figure;
 
+video = VideoWriter('Video_1.avi');
+% video.FrameRate = 60; % change framerate if required
+open(video);
+
 for i = 1:(time_span/dt); % loops through all time intervals
     
     old_top = new_top;
@@ -151,11 +155,10 @@ for i = 1:(time_span/dt); % loops through all time intervals
     
 end
 
-pause(0.5);
+%close(video);
 
 mean_poly = waiting_poly/driving_poly;
 mean_tram = waiting_tram/driving_tram;
-
 
 X = fprintf('Average agents in Polybahn: %f \n', mean(poly_temp) );
 X = fprintf('Average waiting time at Polybahn: %f \n', mean_poly);
@@ -179,6 +182,14 @@ subplot(4,2,6), plot(tram_tempw);
 title('Tram waiting queue');
 subplot(4,2,7), plot(walk_temp);
 title('Walking agents');
+
+frame = getframe(fid2);
+[X,map] = frame2im(frame);
+imwrite(X,'Subplot_1.jpg','jpg');
+
+X = fprintf('Finished video and picture and saved into GitHub-Folder...\n');
+
+
 
 
 
