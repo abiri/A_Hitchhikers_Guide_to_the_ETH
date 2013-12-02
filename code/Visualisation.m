@@ -117,7 +117,7 @@ until = old_top - previous;
                 agent_x(i) = 5 * poly_tempw(current);
                 plot_size(i) = plot_wait;
             case 5
-                agent_y(i) = 510;                  % Waiting for tram
+                agent_y(i) = 520;                  % Waiting for tram
                 agent_x(i) = 5 * tram_tempw(current);
                 plot_size(i) = plot_wait;
             case -1
@@ -142,9 +142,12 @@ until = old_top - previous;
  imshow(A,map);
  hold on;
 
- ylim([0 510]); % so that waiting lines are printed correctly
+ ylim([0 550]); % so that waiting lines are printed correctly
  
  scatter(agent_x,agent_y, plot_size, 'fill', 'MarkerEdgeColor','r', 'MarkerFaceColor','g');
+ 
+ frame = getframe(fid);
+ writeVideo(video,frame);
  
  hold off;
  %pause(0.1);
