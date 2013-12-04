@@ -151,7 +151,7 @@ for i = 1:(time_span/dt); % loops through all time intervals
     
     current = i; % for stacked display of waiting agents in Visualisation
     
-    Visualisation
+    %Visualisation
     
 end
 
