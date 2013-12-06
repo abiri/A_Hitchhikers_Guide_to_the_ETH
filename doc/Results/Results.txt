@@ -1,0 +1,94 @@
+0 percentage of Handicapped simulation:
+
+Average agents in Polybahn: 39.666667 
+Average waiting time at Polybahn: 3.795183 
+Average agents in Tram: 42.013889 
+Average waiting time at tram: 4.647436 
+Average agents walking: 92.734028 
+
+10 percentage of Handicapped simulation:
+
+Average agents in Polybahn: 39.666667 
+Average waiting time at Polybahn: 4.004511 
+Average agents in Tram: 42.013889 
+Average waiting time at tram: 4.708291 
+Average agents walking: 92.522222 
+
+
+20 percentage of Handicapped simulation:
+
+Average agents in Polybahn: 39.666667 
+Average waiting time at Polybahn: 4.272477 
+Average agents in Tram: 42.013889 
+Average waiting time at tram: 4.703162 
+Average agents walking: 92.318750 
+
+
+30 percentage of Handicapped simulation:
+
+Average agents in Polybahn: 39.666667 
+Average waiting time at Polybahn: 4.558677 
+Average agents in Tram: 42.013889 
+Average waiting time at tram: 4.715812 
+Average agents walking: 92.088889 
+
+
+40 percentage of Handicapped simulation:
+
+Average agents in Polybahn: 39.666667 
+Average waiting time at Polybahn: 5.001644 
+Average agents in Tram: 42.013889 
+Average waiting time at tram: 4.739402 
+Average agents walking: 91.692361 
+
+50 percentage of Handicapped simulation:
+
+Average agents in Polybahn: 39.666667 
+Average waiting time at Polybahn: 8.967966 
+Average agents in Tram: 41.820139 
+Average waiting time at tram: 4.700927 
+Average agents walking: 85.545139 
+
+
+60 percentage of Handicapped simulation:
+
+Average agents in Polybahn: 39.666667 
+Average waiting time at Polybahn: 27.556728 
+Average agents in Tram: 41.777083 
+Average waiting time at tram: 4.417397 
+Average agents walking: 55.961111 
+
+70 percentage of Handicapped simulation:
+
+Average agents in Polybahn: 39.666667 
+Average waiting time at Polybahn: 39.852561 
+Average agents in Tram: 41.712500 
+Average waiting time at tram: 3.838413 
+Average agents walking: 24.722222 
+
+80 percentage of Handicapped simulation:
+
+Average agents in Polybahn: 39.666667 
+Average waiting time at Polybahn: 49.477179 
+Average agents in Tram: 37.708333 
+Average waiting time at tram: 3.047524 
+Average agents walking: 1.951389
+ 
+90 percentage of Handicapped simulation:
+
+Average agents in Polybahn: 39.666667 
+Average waiting time at Polybahn: 57.410130 
+Average agents in Tram: 18.704861 
+Average waiting time at tram: 2.981759 
+Average agents walking: 0.000000 
+
+
+100 percentage of Handicapped simulation:
+
+Average agents in Polybahn: 39.666667 
+Average waiting time at Polybahn: 62.941017 
+Average agents in Tram: 0.000000 
+Average waiting time at tram: NaN 
+Average agents walking: 0.000000 
+
+ 
