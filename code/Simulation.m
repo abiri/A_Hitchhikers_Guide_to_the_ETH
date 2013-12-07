@@ -31,10 +31,10 @@ tram_capacity = 50;
 walk_capacity = 10000; % atm infinite
 
 poly_frequency = 2 + dt;  % Time interval between Polybahn departures in minutes
-tram_frequency = 6;
+tram_frequency = 6 + dt;
 
 poly_wait = 80;
-tram_wait = 50;
+tram_wait = tram_capacity; % people wait exactly for the next tram, and not more
 
 waiting_poly = 0;
 driving_poly = 0;
@@ -43,7 +43,7 @@ driving_tram = 0;
 
 % Preparing Visualisation
 calc = 0; % for preventing multiple calculations
-[A,map] = imread('https://github.com/abiri/A_Hitchhikers_Guide_to_the_ETH/blob/master/presentation/Maps_GeoAdmin.png?raw=true','png');
+%[A,map] = imread('https://github.com/abiri/A_Hitchhikers_Guide_to_the_ETH/blob/master/presentation/Maps_GeoAdmin.png?raw=true','png');
 fid = figure;
 
 video = VideoWriter('Video_1.avi');

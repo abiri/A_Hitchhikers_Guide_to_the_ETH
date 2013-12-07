@@ -1,0 +1,39 @@
+Frequency 1:
+
+Average agents in Polybahn: 36.333333 
+Average waiting time at Polybahn: 1.881743 
+Average agents in Tram: 18.036806 
+Average waiting time at tram: 3.180566 
+Average agents walking: 12.666667 
+
+Frequency 1.25:
+
+Average agents in Polybahn: 16.333333 
+Average waiting time at Polybahn: 5.113145 
+Average agents in Tram: 25.069444 
+Average waiting time at tram: 5.058158 
+Average agents walking: 128.365972 
+
+Frequency 1.5:
+
+Average agents in Polybahn: 27.833333 
+Average waiting time at Polybahn: 2.806381 
+Average agents in Tram: 24.924306 
+Average waiting time at tram: 4.339068 
+Average agents walking: 51.218056 
+
+Frequency 1.75:
+
+Average agents in Polybahn: 12.055556 
+Average waiting time at Polybahn: 7.074731 
+Average agents in Tram: 25.069444 
+Average waiting time at tram: 5.196491 
+Average agents walking: 157.332639 
+
+Frequency 2:
+
+Average agents in Polybahn: 21.388889 
+Average waiting time at Polybahn: 3.793788 
+Average agents in Tram: 25.069444 
+Average waiting time at tram: 4.799825 
+Average agents walking: 94.402083 

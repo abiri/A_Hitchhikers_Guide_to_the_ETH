@@ -1,0 +1,50 @@
+Capacity 40:
+
+Average agents in Polybahn: 39.666667 
+Average waiting time at Polybahn: 3.795183 
+Average agents in Tram: 33.611111 
+Average waiting time at tram: 4.835577 
+Average agents walking: 105.843750 
+
+Capacity 50:
+
+Average agents in Polybahn: 39.666667 
+Average waiting time at Polybahn: 3.795183 
+Average agents in Tram: 42.013889 
+Average waiting time at tram: 4.647436 
+Average agents walking: 92.734028 
+
+Capacity 60:
+
+Average agents in Polybahn: 39.666667 
+Average waiting time at Polybahn: 3.795145 
+Average agents in Tram: 50.416667 
+Average waiting time at tram: 4.450926 
+Average agents walking: 79.631944 
+
+Capacity 70:
+
+Average agents in Polybahn: 39.666667 
+Average waiting time at Polybahn: 3.794992 
+Average agents in Tram: 58.690278 
+Average waiting time at tram: 4.256547 
+Average agents walking: 66.737500 
+
+Capacity 80:
+
+Average agents in Polybahn: 39.666667 
+Average waiting time at Polybahn: 3.794992 
+Average agents in Tram: 66.877778 
+Average waiting time at tram: 4.065238 
+Average agents walking: 53.986806 
+
+Capacity 90:
+
+Average agents in Polybahn: 39.666667 
+Average waiting time at Polybahn: 3.794992 
+Average agents in Tram: 75.065278 
+Average waiting time at tram: 3.855769 
+Average agents walking: 41.283333
+
+
+
