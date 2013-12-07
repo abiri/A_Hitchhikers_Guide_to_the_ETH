@@ -1,0 +1,232 @@
+\documentclass[11]{scrreprt}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+\usepackage{geometry}
+\geometry {a4paper,left=25mm,right=25mm,top=35mm}
+\usepackage{graphicx}
+\usepackage[square,sort,comma,numbers]{natbib}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{scrhack}
+\usepackage{boxedminipage}
+\usepackage{amssymb}
+\usepackage{url}
+\usepackage[ansinew]{inputenc}
+\usepackage{ae}  %Schriften fuer Adobe READER
+\usepackage{textcomp}  %mehr Sonderzeichen
+\usepackage{calc}  %Paket fuer Berechnungen
+\usepackage{color}   %Farbiger text
+\usepackage{subfigure}  %mehrere Abbildungen in einer
+\usepackage{natbib}
+\usepackage{scrpage2}  %Kopf-und Fusszeilen
+\usepackage{tabularx} % Tabellen auf Texbreite
+\usepackage{verbatim}  %Programmcode
+\usepackage{listings}  %Prog.code mit mehr otionen
+\usepackage{float}
+\usepackage [colorlinks=true,hidelinks]{hyperref}
+%\hypersetup{colorlinks=true}
+\title{Hitchhikers guide to the ETH}
+\author{Andreas Biri, Antoine Brison}
+\date{\today}
+
+
+%\pagestyle{scrheadings}
+%\setheadsepline{0.5pt}
+%\setfootsepline{0.5pt}
+
+\begin{document}
+
+
+\begin{titlepage}
+\sffamily
+
+\raggedright
+\includegraphics[width=0.3\textwidth]{ETH_logo.jpg} \hfill 
+
+\centering
+\vfill
+{\huge A Hitchhikers Guide to the ETH}\\[1ex]
+%{\bfseries\Large ''Ist eine Energieoptimierung von Kläranlagen dank visueller Analyse des Blasenbildes möglich?''}\\
+
+\vfill
+
+
+{\bfseries \sc{Project thesis\\}}
+\vfill
+by\\[1ex]
+\sc{Andreas Biri, Antoine Brison}\\
+\vfill
+ETH Zurich - Department of Humanities, Social and Political Sciences\\[1ex]
+{\large Chair of Sociology, in Particular of Modelling and Simulation}\\
+\vfill
+
+\raggedright
+\small
+Zurich \today \\[2cm]
+\begin{tabbing}
+Matriculation number:\quad\quad\quad \= 12-918-314, 10-935-369 \\
+E-mail: \>abiri@student.ethz.ch, brisona@student.ethz.ch\\
+Semester: \> Autumn 2013 \\
+Supervisor: \> Thomas Kuhn\\
+\end{tabbing}
+\end{titlepage}
+
+%\input{Titel.tex}
+
+
+%\maketitle
+  %Titelseite erstellen
+\pagestyle{empty} %erste Seite keine Seitenzahl
+\newpage
+\mbox{}
+
+\chapter*{Abstract}
+This paper is based on a traffic and pedestrian simulation study for the GESS subject at the Swiss Federal Institution of Technology Zurich. Everyday, thousands of students travel from and to thee said institution and therefore heavily strain the public transport system. This paper analyses the movements and the decision making of the students and simulates them with an agent-based, time-based model. While mostly homogenous agents are the regarded, one must also take into account special persons such as handicapped ones.
+
+SHORT RESULT ABSTRACT
+
+\thispagestyle{empty}
+
+
+\newpage
+\mbox{}
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+
+\pagenumbering{arabic}
+\chapter{Introduction}
+\pagestyle{headings}
+
+
+
+\section{}
+Nowadays, our everyday life becomes faster and faster, especially in big cities. We have to change locations quickly and therefore, an effective and reliable public transporation system is crucial.
+\newline In urban clusters, they are several places  which particularly attract crowds. To come up to the transportation demand, there are often multiple routes which lead from a certain place to a specific other one. However, the paths might differ from each other in regard to the travel time, thus, one path will be favorized over another if the aim is to travel as fast as possible from A to B. Yet, a single path can have a limited capacity of how many individuals it can carry; e.g. a bus can transport 60 people from A to B every 10 minutes. If the number of individuals aiming to get to the same place exceeds the capacity of the shortest path, individuals will be forced to take the second fastest and therefore less favorable path etc. .
+\newline
+There is only one path that has a nearly unlimited or rather rarely reached capacity: Walking can always be used as the last resort when all other means of transportation are overloaded or not available.
+Of course, there are situations where walking is the fastest way of locomotion. Nevertheless, in this study, we only consider situations when walking is the least desired option in terms of travel time. 
+\newline
+\\
+This work is about the scenario, in which ETH students aim to get from the "Central" station to the ETH main building as fast as possible . We offer our agents three paths, which all lead to the desired destination but differ in both travel time and means of transportation.
+
+\newline
+\\
+The aims of this thesis are:
+\begin{itemize}
+\item Developing a dynamic modell that shows how homogenous agents will disperse over paths with different characteristics.
+\item Simulating an abstracted version of the current situation in Zurich both quantitatively and visually.
+\item Study how improving capacity of the favorized paths influence the situation of the evasion path.
+\item Analysing how handicapped students that are limited to a single path change the dynamics of the entire system.
+
+
+
+\end{itemize}
+
+
+\chapter{Materials and Methods}
+
+\section{The three paths}
+We abstracted the situation and chose three entirely different means of transport to get from the Central station to the ETH main building.
+ \newline
+The first path regarded is an agent taking the Polybahn. Corresponding strongly to reality, the time the Polybahn needs to get to the ETH was decided to be 2 minutes, while the interval between two consecutive polybahn has been set to 2 minutes. There is space for approximatelly 40 persons in one cab, and maximally another 80 persons waiting in front the station.  
+\newline The second possibility is to take the tram from Central over Haldenegg to the ETH/Universit\"atsspital stop. For this distance, the tram needs 5 minutes. It was assumed that each tram has the capacity of taking 50 additional students; even though there are a total of 238 places in a typical "Cobra" tram, only a small amount is still unoccupied when arriving at the Central stop. The time between two consecutive trams has been set to 6 minutes, whereby two different tram lines were simplified to a single one.
+\newline The third and longest option is to walk from the Central to ETH main building. With a lenght of 8 minutes, this is the longest path. As the path is wide enough, no passage limitation can be observed in reality. Therefore, the capacity is unlimited and the waiting time for walking is obviously not existing. The detailed trail can be see on the map in figure \ref{fig:Path_walking}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{Path_walking.png}
+\caption{Walking path in red, compared to the Polybahn in blue}
+\label{fig:Path_walking}
+\end{figure}
+
+\section{Agents modelling}
+\subsection{Homogeneous agents}
+The homogeneous agents all represent students which are going to the ETH, whereby each agent has the exact same starting conditions.
+Each agent was programmed with three attributes. For reasons of efficiency, we chose to save the agents in a matrix, as object orientation is not implemented in an arithmetically preferable way in MATLAB. For this, we defined a function that creates a M x 3 matrix, with M being the number of agents and 3 the number of attributes. 
+\newline
+\\
+Attribute 1 is an integer number storing the path chosen by the agent and can be -1, 1, 2, 3, 4 and 5. The numbers 1 to 3 stand for the three different paths an agent can chose from, i.e. taking the polybahn, the tram or walking . The numbers 4 and 5 represent the actions of waiting for the polybahn and waiting for the tram respectively.  Once a homogeneous agent reaches the ETH, his first attribute becomes -1, indicating that he has finished his voyage and is no longer part of the active simulation. Latter is important, on one hand since we wanted to quantify the operating grade of each path over time and also since this allowes us to exclude all finished agents from the further computation in the next time step.
+\newline
+\\
+Attributes 2 and 3 are double numbers representing time values. The first one indicates the time an agent has been on a certain path, while the latter saves the amount of time waited in a queue. This allows for statistical evaluation of the different paths and comparing time consumption of different paths. 
+
+
+
+
+\subsection{Heterogeneous agents}
+
+
+While homogenous agents all evaluate the system and act correspondingly, there may be certain percents that are unavailable of walking. Sports accidents, serious illnesses, the increasing obesity and a general AGEING of the population create a strain on public transport and increase transportation problems. As they are handicapped, those agents are not able to choose from all paths available and are required to use certain routes that are perhaps less favourable.
+\newline
+In our simulation, the heterogenous agents try to simulate these circumstances. Even before the actual simulation starts, a fixed percentage of agents is being bound to use the Polybahn, as walking is no option and the trams are much less favourable in terms of sitting opportunities and ZUSTEIGS/EINSTEIGSMÖGLICHKEITEN.
+As those agents do not respect the waiting capacity of the specific transportation medium ( as they have no other option and cannot cancel their voyage), waiting times can reach a certain threshold, after which the waiting time constantly increases. This threshold can be located at the point, at which on average more handicapped agents arrive at the station per interval than the medium can carry in the same time slit. Therefore, this path is rendered useless and no more option for (general) public transport.  
+
+
+
+WRITE ABOUT AT WHICH PERCENTAGE THIS THRESHOLD IS REACHED
+
+
+\section{Simulation}
+
+
+The Simulation part of the modell is stuctured into three different subsections.
+\newline
+\\
+In the initialization, the agents are created by an extern function specified previously and the global variables are specified. While crucial data, such as the number of agents per time interval ( APTI ) and WHAT, are stored in a separate "data" file and are accessible for all files, simulation specific files such as the waiting time, capacities as well as WHAT are defined and initialized here.
+
+The main part of the program is the simulation loop. As this moddel bases on an agent-based, time-depending structure, the most outer loop implements time and increases once every iteration by a previously defined time step dT.
+\newline
+The inner loop iterates through all the agents that are currently in the system. To prevent redundant calculations of agents that already left the system, those agents are automatically excluded and the  beginning and the ending of the loop are adjusted accordingly. The old agents that were already treated are checked again to see whether any change has occured; this is either because they arrived at the destination, or if a tram or Polybahn is departing and they can change from the queue to the actual moving vehicle. New agents are put into one of five categories: they can either catch a departing tram or Polybahn (if these are not full yet), start waiting for the next one or directly walk.
+\newline
+With an average of 200 agents in the system, the inner loop iterates the same amount per time interval. With a default of 6 * 60 * 4 = 1440 time steps, there are 1440 * 200 = 288'000 iterations through this inner decision loop. Whenever one time step has been entirely calculated, the "Visualisation" function draws the current situation into a figure and saves the image for further use in a video.
+\newline
+\\
+If the calculations are finished, the last phase of the simulation is initiated. Here, statistical data is calculated and data sets are getting prepared for saving. At the very end, a figure displaying the graphs of usage of the different paths and their waiting time is displayed and saved for further processing.
+
+
+\section{Visualisation}
+
+
+ 
+This function is used to display the calculated results visually on a map. This map shows the real paths from the "Central" station to the ETH as well as the buildings surrounding it. Each agent receives an x- and y-Coordinate according to the time it has already spent travelling. The entire matrix is then displayed as a scatter plot and plotted over the background image.
+\newline
+In order to reduce the RECHENAUFWAND, the paths are calculated in the first call of the function and afterwards stored for the next 1439 ones. A loop then reads each agent and gives it its coordinates corresponding to the way taken.
+
+
+
+
+
+
+
+\chapter{Results and Discussion}
+\section{Calculus of the path operating grade }
+
+\section{Animated agents on the map}
+
+
+\chapter{Conclusion and Perspective}
+
+\section{Social and psychological aspect of waiting in a queue}
+
+Tell reasons why we still wait 5 minutes at the Polybahn when walking is faster, why we do not constantly compare and change queues -> simplified simulations corresponds with that.
+
+
+\appendix
+\chapter{Appendix}
+\section{Data file}
+
+\section{Homogeneous agents}
+
+\begin{thebibliography}{99}
+
+
+
+
+
+
+
+
+
+\end{thebibliography}
+\end{document}
