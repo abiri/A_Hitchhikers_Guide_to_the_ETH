@@ -1,4 +1,4 @@
-0 percentage of Handicapped simulation:
+5 0 percentage of Handicapped simulation:
 
 Average agents in Polybahn: 39.666667 
 Average waiting time at Polybahn: 3.795183 
