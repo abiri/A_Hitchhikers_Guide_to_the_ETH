@@ -30,8 +30,8 @@ poly_capacity = 40;
 tram_capacity = 50;
 walk_capacity = 10000; % atm infinite
 
-poly_frequency = 2 + dt;  % Time interval between Polybahn departures in minutes
-tram_frequency = 6 + dt;
+poly_frequency = (2 *6 + 1)*dt;  % Time interval between Polybahn departures in minutes
+tram_frequency = (6 *6 + 1)*dt;
 
 poly_wait = 80;
 tram_wait = tram_capacity; % people wait exactly for the next tram, and not more
