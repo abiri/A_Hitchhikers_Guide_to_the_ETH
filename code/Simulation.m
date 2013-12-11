@@ -43,7 +43,7 @@ driving_tram = 0;
 
 % Preparing Visualisation
 calc = 0; % for preventing multiple calculations
-%[A,map] = imread('https://github.com/abiri/A_Hitchhikers_Guide_to_the_ETH/blob/master/presentation/Maps_GeoAdmin.png?raw=true','png');
+[A,map] = imread('https://github.com/abiri/A_Hitchhikers_Guide_to_the_ETH/blob/master/presentation/Maps_GeoAdmin.png?raw=true','png');
 fid = figure;
 
 video = VideoWriter('Video_1.avi');
@@ -151,7 +151,7 @@ for i = 1:(time_span/dt); % loops through all time intervals
     
     current = i; % for stacked display of waiting agents in Visualisation
     
-    %Visualisation
+    Visualisation
     
 end
 
